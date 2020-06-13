@@ -18,9 +18,10 @@ def display(board):
 
 def player1(p1,userchoice,play1):
     
-    z=int(input("%s enter your choice from 1 to 9:"%play1))
-    z=z-1
-    if(z>=0 and z<9):
+    k=['1','2','3','4','5','6','7','8','9']
+    z=input("%s enter your choice from 1 to 9:"%play1)
+    if(z in k):
+        z=int(z)-1
         if(z not in p2):
             if(z not in p1):
                     p1.append(z)
@@ -28,15 +29,15 @@ def player1(p1,userchoice,play1):
                     board[z]=userchoice
                     display(board)
             else:
-                print("Space is already occupied....Try again")
+                print("%s is already occupied....Try again\n"%(z+1))
                 player1(p1,userchoice,play1)
             
             
         else:
-            print("Space is already occupied....Try again")
+            print("%s is already occupied....Try again\n"%(z+1))
             player1(p1,userchoice,play1)
     else:
-            print("Invalid input:Please try again")
+            print("Invalid input:Please try again\n" )
             player1(p1,userchoice,play1)
 
 
@@ -88,7 +89,7 @@ def gamesingle(turn,board,compopt,userchoice) :
        for i in range(4):
            player1(p1,"O",play1)
            if win(board,turn)=="O":
-                    print("%s is winner"%play1)
+                    print("%s won the match!!!!!!!!"%play1)
                     break
            playercomp(p2,compopt)
            if win(board,turn)=="X":
@@ -97,7 +98,7 @@ def gamesingle(turn,board,compopt,userchoice) :
        else:
            player1(p1,"O",play1)
            if win(board,turn)=="O":
-                    print("%s is winner"%play1)
+                    print("%s won the match!!!!!!!!!"%play1)
            else:
                print("Its a Draw")
             
@@ -108,11 +109,11 @@ def gamesingle(turn,board,compopt,userchoice) :
                playercomp(p2,compopt)
                
                if win(board,turn)=="O":
-                        print("Computer won the match")
+                        print("Computer won the match..............")
                         break
                player1(p1,"X",play1)
                if win(board,turn)=="X":
-                    print("%s is winner"%play1)
+                    print("%s won the match!!!!!!!"%play1)
                     break
 
         else:
@@ -132,16 +133,16 @@ def game(turn,board):
     for i in range(4):
             player1(p1,"O",play1)
             if win(board,turn)=="O":
-                print("%s is winner"%play1)
+                print("%s won the match!!!!!!!!!"%play1)
                 break
             player1(p2,"X",play2)
             if win(board,turn)=="X":
-                print("%s is winner"%play2)
+                print("%s won the match!!!!!!!1"%play2)
                 break
     else:   
           player1(p1,"O",play1)
           if win(board,turn)=="O":
-                print("%s is winner"%play1)
+                print("%s won the match!!!!!!!!!!"%play1)
           else:
               print("Its Draw")
          
